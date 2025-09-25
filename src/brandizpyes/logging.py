@@ -1,13 +1,20 @@
-def logger_config ( logger_name = None, disable_existing_loggers = False ):
+import logging, logging.config
+import os
+from sys import stderr
+import yaml
+
+def logger_config ( logger_name = None, cfg_path = None, disable_existing_loggers = False ) -> logging.Logger | None:
 	"""
 	Configures the Python logging module with a YAML configuration file.
 	
-	The file name is picked from KPY_LOG_CONF, or from <current directory>/logging.yaml
+	The file name is picked, in order: from cfg_path if provided, from the environment variable 
+	PYES_LOG_CONF, from <current directory>/logging.yaml.
+
 	This should be called at the begin of a main program and BEFORE any use of the logging module.
 	Multiple calls of this method are idempotent, ie, the Python logging module configures itself
 	once only (and only before sending in logging messages).
 	
-	An example of logging config file is included in ETL tools.
+	An example of logging config file is included in the package test files.
 	
 	If logger_name is provided, the function returns logging.getLogger ( logger_name ) as a facility
 	to avoid the need to import logging too, when you already import this. Beware that you load a configuration
@@ -15,13 +22,15 @@ def logger_config ( logger_name = None, disable_existing_loggers = False ):
 	
 	param disable_existing_loggers is false by default, this is the best way to not interfere with modules instantiating
 	their own module logger, usually before you call this function on top of your application (but usually after 
-	all the imports). By default, the Python logging library has this otpion set to true and that typically causes
+	all the imports). By default, the Python logging library has this option set to true and that typically causes
 	all the module loggers to be disabled after the configuration loading. See https://docs.python.org/3/library/logging.config.html
 	"""
 
-	cfg_path = os.getenv ( "KPY_LOG_CONF_PATH", "logging.yaml" )
+	if not cfg_path:
+		cfg_path = os.getenv ( "PYES_LOG_CONF_PATH", "logging.yaml" )
+
 	if not os.path.isfile ( cfg_path ):
-		print ( "*** Logger config file '%s' not found, use the OS variable KPY_LOG_CONF to point to a logging configuration." % cfg_path, file = stderr )
+		print ( "*** Logger config file '%s' not found, use the OS variable PYES_LOG_CONF_PATH to point to a logging configuration." % cfg_path, file = stderr )
 		print ( "The logger will use the default configuration ", file = stderr )
 		return logging.getLogger ( logger_name ) if logger_name else None 
 

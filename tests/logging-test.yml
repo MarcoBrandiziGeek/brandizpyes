@@ -1,0 +1,32 @@
+version: 1
+
+handlers:
+
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    stream: ext://sys.stderr
+    formatter: simpleFormatter
+
+  file:
+    class: logging.FileHandler
+    filename: /tmp/brandiz-pyes.log
+    mode: w
+    #level: DEBUG
+    formatter: simpleFormatter
+
+
+formatters:
+  simpleFormatter:
+    # The formatter class, this is the default
+    #class: logging.Formatter
+    
+    # A way to give the FQN.
+    #class: !!python/name:logging.Formatter
+    format: '%(asctime)s [%(levelname)-7s] [%(name)-10s] [%(threadName)-8s] %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+
+
+root:
+  level: DEBUG
+  handlers: [console, file]
