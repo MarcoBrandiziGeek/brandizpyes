@@ -12,7 +12,7 @@ def logger_config (
 	Configures the Python logging module with a YAML configuration file.
 	
 	The file name is picked, in order: from cfg_path if provided, from the environment variable 
-	PYES_LOG_CONF, from <current directory>/logging.yaml.
+	PYES_LOG_CONF, from <current directory>/logging-test.yml or <current directory>/logging.yml.
 
 	This should be called at the begin of a main program and BEFORE any use of the logging module.
 	Multiple calls of this method are idempotent, ie, the Python logging module configures itself
@@ -36,7 +36,6 @@ def logger_config (
 	"""
 
 	if not cfg_path:
-		# TODO: Fix the comments, tests
 		for probed_path in ( os.getenv ( "PYES_LOG_CONF_PATH", "logging-test.yml" ), "logging.yml" ):
 			cfg_path = probed_path
 			if os.path.isfile ( probed_path ): break
