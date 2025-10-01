@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "brandizpyes"
-version = "0.1.0"
+version = "0.1.1"
 description = "Brandiz Pyes - Python Utilities"
 authors = ["Marco Brandizi"]
 license = "MIT"

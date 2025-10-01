@@ -4,8 +4,19 @@ handlers:
 
   console:
     class: logging.StreamHandler
+    level: INFO
     stream: ext://sys.stderr
     formatter: simpleFormatter
+
+  file:
+    class: logging.FileHandler
+    filename: !!python/object/apply:os.path.join
+      - !!python/object/apply:tempfile.gettempdir []
+      - brandiz-pyes.log
+    mode: w
+    #level: DEBUG
+    formatter: simpleFormatter
+
 
 formatters:
   simpleFormatter:
@@ -19,5 +30,5 @@ formatters:
 
 
 root:
-  level: ERROR
-  handlers: [console]
+  level: DEBUG
+  handlers: [console, file]

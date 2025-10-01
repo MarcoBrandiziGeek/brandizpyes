@@ -3,7 +3,11 @@ import os
 from sys import stderr
 import yaml
 
-def logger_config ( logger_name = None, cfg_path = None, disable_existing_loggers = False ) -> logging.Logger | None:
+def logger_config ( 
+	logger_name = None, cfg_path = None, 
+	disable_existing_loggers = False,
+	use_unsafe_loader = False
+) -> logging.Logger | None:
 	"""
 	Configures the Python logging module with a YAML configuration file.
 	
@@ -24,18 +28,28 @@ def logger_config ( logger_name = None, cfg_path = None, disable_existing_logger
 	their own module logger, usually before you call this function on top of your application (but usually after 
 	all the imports). By default, the Python logging library has this option set to true and that typically causes
 	all the module loggers to be disabled after the configuration loading. See https://docs.python.org/3/library/logging.config.html
+
+	param use_unsafe_loader: if true, uses yaml.UnsafeLoader to load the configuration file. 
+	This is useful when you want to do things like calling functions in the configuration file 
+	(see logging-explicitly-loaded.yml in the tests). However, it's False by default, since this behaviour is
+	unsafe (see Python documentation).
 	"""
 
 	if not cfg_path:
-		cfg_path = os.getenv ( "PYES_LOG_CONF_PATH", "logging.yaml" )
+		# TODO: Fix the comments, tests
+		for probed_path in ( os.getenv ( "PYES_LOG_CONF_PATH", "logging-test.yml" ), "logging.yml" ):
+			cfg_path = probed_path
+			if os.path.isfile ( probed_path ): break
 
 	if not os.path.isfile ( cfg_path ):
-		print ( "*** Logger config file '%s' not found, use the OS variable PYES_LOG_CONF_PATH to point to a logging configuration." % cfg_path, file = stderr )
-		print ( "The logger will use the default configuration ", file = stderr )
-		return logging.getLogger ( logger_name ) if logger_name else None 
+		print ( f"*** Logger config file '{cfg_path}' not found, use the OS variable PYES_LOG_CONF_PATH to point to a logging configuration.", file = stderr )
+		print ( "The logger will use a default configuration ", file = stderr )
+		cfg_path = os.path.join ( os.path.dirname ( __file__ ), "logging-default.yml" )
+
+	loader = yaml.UnsafeLoader if use_unsafe_loader else yaml.FullLoader
 
 	with open ( cfg_path ) as flog:		
-		cfg = yaml.load ( flog, Loader = yaml.FullLoader )
+		cfg = yaml.load ( flog, Loader = loader )
 		# As per documentation, if not reset, this disables loggers in the modules, which usually are 
 		# loaded during 'import', before calling this function
 		cfg [ "disable_existing_loggers" ] = disable_existing_loggers
