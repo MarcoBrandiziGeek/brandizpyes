@@ -1,3 +1,7 @@
+# Used to test the loading of well-known names, when no config file is explicitly given,
+# neither in the code, nor with the PYES_LOG_CONF environment variable.
+#
+
 version: 1
 
 handlers:
