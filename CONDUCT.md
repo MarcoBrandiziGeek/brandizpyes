@@ -1,5 +1,9 @@
 # Code of Conduct
 
+**TL;DR**: I'm keeping the text below from Poetry/cookiecutter automation, since I agree with it. In a nutshell, it says be a decent person, be respectful, kind and patient.
+
+I can add that this is a personal project, largely maintained by a single person and largely during unpaid time, so be patient when I'm not responsive.
+
 ## Our Pledge
 
 In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.

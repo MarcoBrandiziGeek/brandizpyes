@@ -1,6 +1,6 @@
 # brandizpyes
 
-Brandiz Pyes - Python Utilities
+Brandiz Pyes - Marco Brandizi's Personal Python Utilities
 
 ## Installation
 
@@ -10,11 +10,11 @@ $ pip install brandizpyes
 
 ## Usage
 
-- TODO
+A library of various Python utilities I (Marco Brandizi, and maybe others) have written and use in my Python projects.
 
 ## Contributing
 
-Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+Have a look at the github repo, send issues, possibly fork and propose pull requests.
 
 ## License
 
