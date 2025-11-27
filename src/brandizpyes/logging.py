@@ -18,6 +18,8 @@ def logger_config (
 	
 	The file name is picked, in order: from cfg_path if provided, from the environment variable 
 	PYES_LOG_CONF, from <current directory>/logging-test.yml or <current directory>/logging.yml.
+	If none of these files exists, a [default configuration file](logging-default.yml) 
+	included in this package is used.
 
 	This should be called at the begin of an application and BEFORE any use of the logging module.
 	Multiple calls of this method are idempotent, ie, the Python logging module configures itself
