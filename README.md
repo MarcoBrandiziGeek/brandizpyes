@@ -8,6 +8,8 @@ Brandiz Pyes - Marco Brandizi's Personal Python Utilities
 $ pip install brandizpyes
 ```
 
+Or, do it through your PIP-supporting packaging/build manager.
+
 ## Usage
 
 A library of various Python utilities I (Marco Brandizi, and maybe others) have written and use in my Python projects.
