@@ -4,10 +4,16 @@
 
 <!--next-version-placeholder-->
 
-## v1.0.0 (25/11/2025)
+# 1.0.1 (2025-11-27)
+* Test code improvements (refactoring, comments, assertpy )
+* Documentation improvements
+
+
+## 1.0.0 (2025-11-25)
 * First release to PyPI and github
 * Dependencies upgraded
 
-## v0.1.0 (23/09/2025)
+
+## 0.1.0 (2025-09-23)
 * First release (in the test registry)
 * `logging` module added
