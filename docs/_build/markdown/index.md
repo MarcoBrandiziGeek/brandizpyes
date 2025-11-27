@@ -12,7 +12,7 @@ Or, do it through your PIP-supporting packaging/build manager.
 
 ## Usage
 
-See [the auto-api documentation]() for a complete list of available modules and functions.
+See the [sources](), the [tests](), or [the auto-api documentation]().
 
 ## Contributing
 

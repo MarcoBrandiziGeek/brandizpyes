@@ -13,7 +13,8 @@ Or, do it through your PIP-supporting packaging/build manager.
 
 ## Usage
 
-See [the auto-api documentation](docs/_build/markdown/autoapi/index.md) for a complete list of available modules and functions.
+See the [sources](src), the [tests](tests), or [the auto-api documentation](docs/_build/markdown/autoapi/index.md).
+
 
 ## Contributing
 

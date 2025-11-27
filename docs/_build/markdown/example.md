@@ -1,6 +1,6 @@
 **TODO**: this is just the default made by cukiecutter. Will be written properly in future.
 
-For the time being, see the [github repository](https://github.com/brandizi/brandizpyes).
+For the time being, see the [github repository](https://github.com/brandizi/brandizpyes), or [the auto-api documentation]().
 
 # Example usage
 

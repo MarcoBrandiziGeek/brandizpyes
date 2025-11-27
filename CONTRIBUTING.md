@@ -1,5 +1,8 @@
 # Contributing
 
+**TODO**: this is just the default made by cukiecutter. Will be written properly in future.
+
+
 Contributions are welcome, and they are greatly appreciated! Every little bit
 helps, and credit will always be given.
 
