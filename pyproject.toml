@@ -24,4 +24,5 @@ dev = [
     "sphinx-autoapi (>=3.6.0,<4.0.0)",
     "sphinx-rtd-theme (>=3.0.2,<4.0.0)",
     "sphinx-markdown-builder (>=0.6.8,<0.7.0)",
+    "assertpy (>=1.1,<2.0)",
 ]

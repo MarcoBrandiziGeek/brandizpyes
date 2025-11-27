@@ -4,6 +4,7 @@ import logging
 import os, io, sys
 import tempfile
 import pytest
+from assertpy import assert_that
 
 
 @pytest.mark.parametrize ( "source_type", [ "PATH", "ENV_VAR" ] )
@@ -62,17 +63,17 @@ def test_explicitly_loaded_config ( source_type: str ):
 	print ( "Captured output: " )
 	print ( std_err_str )
 
-	assert err_msg in std_err_str, "Error message not logged!"
-	assert info_msg in std_err_str, "Info message not logged!"
-	assert debug_msg not in std_err_str, "Debug message should not be logged in the console!"
+	assert_that ( std_err_str, "Error message was logged" ).contains ( err_msg )
+	assert_that ( std_err_str, "Info message was logged" ).contains ( info_msg )
+	assert_that ( std_err_str, "Debug message was not logged in the console" ).does_not_contain ( debug_msg )
 
 	print ( "Verifying the log file" )
 	with open ( log_file_path ) as flog:
-		log_file_str = flog.read()
+		log_file_str = flog.read ()
 		
-	assert err_msg in log_file_str, "Error message not logged in the file!"
-	assert info_msg in log_file_str, "Info message not logged in the file!"
-	assert debug_msg in log_file_str, "Debug message not logged in the file!"
+	assert_that ( log_file_str, "Error message was logged in the file" ).contains ( err_msg )
+	assert_that ( log_file_str, "Info message was logged in the file" ).contains ( info_msg )
+	assert_that ( log_file_str, "Debug message was logged in the file" ).contains ( debug_msg )
 
 
 def test_default_config ():
@@ -100,9 +101,9 @@ def test_default_config ():
 	std_err_str = std_err.getvalue()
 	sys.stderr = old_stderr
 
-	assert err_msg in std_err_str, "Error message not logged by the default config!"
-	assert info_msg in std_err_str, "Info message not logged by the default config!"
-	assert debug_msg not in std_err_str, "Debug message should not be logged by the default config!"
+	assert_that ( std_err_str, "Error message was logged by the default config" ).contains ( err_msg )
+	assert_that ( std_err_str, "Info message was logged by the default config" ).contains ( info_msg )
+	assert_that ( std_err_str, "Debug message was not logged by the default config" ).does_not_contain ( debug_msg )
 
 
 def test_config_from_common_path ():
@@ -128,5 +129,5 @@ def test_config_from_common_path ():
 	std_err_str = std_err.getvalue()
 	sys.stderr = old_stderr
 
-	assert err_msg in std_err_str, "Error message not logged by the common name logger!"
-	assert warn_msg not in std_err_str, "Warning message should not be logged by the common name logger!"
+	assert_that ( std_err_str, "Error message was logged by the common name logger" ).contains ( err_msg )
+	assert_that ( std_err_str, "Warning message was not logged by the common name logger" ).does_not_contain ( warn_msg )
