@@ -1,6 +1,7 @@
-# brandizpyes
+# Brandiz Pyes - Marco Brandizi's Personal Python Utilities.
 
-Brandiz Pyes - Marco Brandizi's Personal Python Utilities
+A library of various Python utilities I (Marco Brandizi, and maybe others) have written and use in my Python projects.
+
 
 ## Installation
 
@@ -12,7 +13,7 @@ Or, do it through your PIP-supporting packaging/build manager.
 
 ## Usage
 
-A library of various Python utilities I (Marco Brandizi, and maybe others) have written and use in my Python projects.
+See [the auto-api documentation](docs/_build/markdown/autoapi/index.md) for a complete list of available modules and functions.
 
 ## Contributing
 
