@@ -24,4 +24,5 @@ formatters:
 
 root:
   level: ERROR
-  handlers: [console]
+  handlers: 
+  - console
