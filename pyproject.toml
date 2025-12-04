@@ -1,8 +1,10 @@
-[tool.poetry]
+[project]
 name = "brandizpyes"
 version = "1.1.0"
 description = "Brandiz Pyes - Python Utilities"
-authors = ["Marco Brandizi"]
+authors = [
+  { name = "Marco Brandizi" }
+]
 license = "MIT"
 readme = "README.md"
 
