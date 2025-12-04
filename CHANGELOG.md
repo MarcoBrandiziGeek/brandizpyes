@@ -1,12 +1,15 @@
 # Changelog
 
-*This file was updated on 2025-12-02. Please keep this note up to date.*
+*This file was updated on 2025-12-04. Please keep this note up to date.*
 
-<!--next-version-placeholder-->
+# 1.1.1 (unreleased)
+* Current snapshot
 
-# 1.1.0 (not released yet)
+
+# 1.1.0 (2025-12-04)
 * Logging via our own logging configure added to our own pytest runs
 * [ioutils](src/brandizpyes/ioutils.py) added
+* Sphinx docs removed (for the moment, we don't use it in this small project)
 
 
 # 1.0.1 (2025-11-27)
