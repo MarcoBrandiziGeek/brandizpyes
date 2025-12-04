@@ -4,7 +4,7 @@
 
 <!--next-version-placeholder-->
 
-# 1.1.0 (not releasesed yet)
+# 1.1.0 (not released yet)
 * Logging via our own logging configure added to our own pytest runs
 * [ioutils](src/brandizpyes/ioutils.py) added
 

@@ -13,7 +13,10 @@ Or, do it through your PIP-supporting packaging/build manager.
 
 ## Usage
 
-See the [sources](src), the [tests](tests), or [the auto-api documentation](docs/_build/markdown/autoapi/index.md).
+See the [sources](src) or the [tests](tests).
+
+[US10]: https://github.com/marco-brandizi/brandizpyes/tree/main/src
+[US20]: https://github.com/marco-brandizi/brandizpyes/tree/main/tests
 
 
 ## Contributing
