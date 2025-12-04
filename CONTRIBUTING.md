@@ -1,10 +1,6 @@
 # Contributing
 
-**TODO**: this is just the default made by cukiecutter. Will be written properly in future.
-
-
-Contributions are welcome, and they are greatly appreciated! Every little bit
-helps, and credit will always be given.
+Contributions are welcome!
 
 ## Types of Contributions
 
@@ -41,44 +37,65 @@ If you are proposing a feature:
 * Remember that this is a volunteer-driven project, and that contributions
   are welcome :)
 
-## Get Started!
+## Get Started with development
 
-Ready to contribute? Here's how to set up `brandizpyes` for local development.
+1. You need:
+  * Git
+  * Python
+  * Poetry
+  * Likely, Linux or macOS, possibly flavours like virtual machines, WSL, Docker (it should work on Windows too, but I have neither time, nor will to support it).
 
-1. Download a copy of `brandizpyes` locally.
+1. Fork https://github.com/marco-brandizi/brandizpyes.git
 
-2. Create and activate a conda environment for `brandizpyes`:
+1. `git clone https://github.com/<your-username-or-organization>/brandizpyes.git` and `cd` into it.
 
-    ```console
-    $ conda create -n brandizpyes python=3.13
-    $ conda activate brandizpyes
-    ```
 
-3. Install `brandizpyes` using `poetry`:
+1. Use `poetry`:
 
     ```console
     $ poetry install
+    <Changes>
+    $ poetry pytest [test files/functions]
     ```
 
-4. Use `git` (or similar) to create a branch for local development and make your changes:
+1. Commit, push, and eventually send a pull request. 
 
-    ```console
-    $ git checkout -b name-of-your-bugfix-or-feature
-    ```
+## Best Practices
 
-5. When you're done making changes, check that your changes conform to any code formatting requirements and pass any tests.
+Please, try to follow these best practices.
 
-6. Commit your changes and open a pull request.
+### Software engineering
 
-## Pull Request Guidelines
+* [Clean Code][BEST10]
+* [Solid Principles][BEST20]
+* [Design Patterns][BEST30]
+* [COSMIC Python][BEST40]
+* [My Humble Opinions][BEST50] :-)
 
-Before you submit a pull request, check that it meets these guidelines:
+[BEST10]: https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29
+[BEST20]: https://en.wikipedia.org/wiki/SOLID
+[BEST30]: https://refactoring.guru/design-patterns
+[BEST40]: https://cosmicpython.com
+[BEST50]: https://marcobrandizi.info/a-few-notes-on-my-code-style
 
-1. The pull request should include additional tests if appropriate.
-2. If the pull request adds functionality, the docs should be updated.
-3. The pull request should work for all currently supported operating systems and versions of Python.
+### Git and versioning
+
+* [Conventional commits][BEST60]
+* [CBEAMS article][BEST70]
+* [My own notes][BEST80]
+
+[BEST60]: https://www.conventionalcommits.org
+[BEST70]: https://cbea.ms/git-commit
+[BEST80]: https://marcobrandizi.info/some-tricks-and-tips-about-git
+
+
+### Pull Requests
+
+* Add tests to cover changes or new features
+* Use enough comments and documentation
+* Before creating a PR, merge your fork with the latest `main` branch and ensure it passes all the tests and builds.
 
 ## Code of Conduct
 
-Please note that the `brandizpyes` project is released with a
-Code of Conduct. By contributing to this project you agree to abide by its terms.
+Yeah, [I have a doc for this too](./CONDUCT.md), which essentially, says be a decent person.
+

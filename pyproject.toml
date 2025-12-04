@@ -6,6 +6,11 @@ authors = ["Marco Brandizi"]
 license = "MIT"
 readme = "README.md"
 
+[project.urls]
+Repository = "https://github.com/marco-brandizi/brandizpyes.git"
+Issues = "https://github.com/marco-brandizi/brandizpyes/issues"
+Changelog = "https://github.com/marco-brandizi/brandizpyes/blob/main/CHANGELOG.md"
+
 [tool.poetry.dependencies]
 python = "^3.14"
 pyyaml = "^6.0.3"
