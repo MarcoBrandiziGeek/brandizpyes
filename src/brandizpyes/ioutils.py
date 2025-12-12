@@ -1,7 +1,6 @@
-from typing import Optional, TextIO
 from io import StringIO
+from typing import Callable, Optional, TextIO
 
-from typing import Callable
 
 def dump_output ( 
 	writer: Callable [[TextIO], Optional[str]],

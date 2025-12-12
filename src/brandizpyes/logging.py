@@ -1,6 +1,8 @@
-import logging, logging.config
+import logging
+import logging.config
 import os
 from sys import stderr
+
 import yaml
 
 # TODO: support the rich library components, to get coloured output

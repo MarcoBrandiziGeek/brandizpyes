@@ -1,14 +1,11 @@
-from io import StringIO
 import os
-import unittest
-from contextlib import redirect_stdout
+import sys
 import tempfile
 
 from assertpy import assert_that
 
-import sys
-
 from brandizpyes.ioutils import dump_output
+
 
 def test_dump_output_to_file ():
 	test_content = "Hello, file!\n"

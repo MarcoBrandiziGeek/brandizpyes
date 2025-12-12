@@ -1,10 +1,13 @@
-from typing import TextIO
-from brandizpyes.logging import logger_config
+import io
 import logging
-import os, io, sys
+import os
+import sys
 import tempfile
+
 import pytest
 from assertpy import assert_that
+
+from brandizpyes.logging import logger_config
 
 
 @pytest.mark.parametrize ( "source_type", [ "PATH", "ENV_VAR" ] )
