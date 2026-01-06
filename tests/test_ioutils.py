@@ -39,6 +39,7 @@ class TestDumpOutput:
 
 		# Dumps to the file-like object sys.stdout
 		dump_output ( lambda fh: fh.write ( test_content ), sys.stdout )
+		# capsys is a pytest helper, see their docs
 		content = capsys.readouterr().out
 
 		assert_that( content, "dump_output() to stdout succeeded" )\
