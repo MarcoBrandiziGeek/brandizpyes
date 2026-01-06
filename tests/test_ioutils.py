@@ -7,35 +7,39 @@ from assertpy import assert_that
 from brandizpyes.ioutils import dump_output
 
 
-def test_dump_output_to_file ():
-	test_content = "Hello, file!\n"
-	output_path = os.path.join ( tempfile.gettempdir (), 'ketl.ioutils.testdumpout.txt' )
+class TestDumpOutput:
 
-	if os.path.exists ( output_path ): os.remove ( output_path )
+	def test_to_file ( self ):
+		test_content = "Hello, file!\n"
+		output_path = os.path.join ( tempfile.gettempdir (), 'ketl.ioutils.testdumpout.txt' )
 
-	# Dump to this path
-	dump_output ( lambda fh: fh.write ( test_content ), output_path )
-	
-	with open ( output_path, 'r' ) as fh:
-		content = fh.read()
+		if os.path.exists ( output_path ): os.remove ( output_path )
 
-	assert_that( content, "dump_output() to file succeeded" ).is_equal_to( test_content )
+		# Dump to this path
+		dump_output ( lambda fh: fh.write ( test_content ), output_path )
+		
+		with open ( output_path, 'r' ) as fh:
+			content = fh.read()
 
-def test_dump_output_to_string ():
-	test_content = "Hello, StringIO!\n"
+		assert_that( content, "dump_output() to file succeeded" ).is_equal_to( test_content )
 
-	# No other parameter, dumps to a StringIO and returns its content
-	content = dump_output ( lambda fh: fh.write ( test_content ) )
-	
-	assert_that( content, "dump_output() to StringIO succeeded" )\
-		.is_equal_to( test_content )
 
-def test_dump_output_to_stdout ( capsys ):
-	test_content = "Hello, stdout!\n"
+	def test_to_string ( self ):
+		test_content = "Hello, StringIO!\n"
 
-	# Dumps to the file-like object sys.stdout
-	dump_output ( lambda fh: fh.write ( test_content ), sys.stdout )
-	content = capsys.readouterr().out
+		# No other parameter, dumps to a StringIO and returns its content
+		content = dump_output ( lambda fh: fh.write ( test_content ) )
+		
+		assert_that( content, "dump_output() to StringIO succeeded" )\
+			.is_equal_to( test_content )
 
-	assert_that( content, "dump_output() to stdout succeeded" )\
-		.is_equal_to( test_content )
+
+	def test_to_stdout ( self, capsys ):
+		test_content = "Hello, stdout!\n"
+
+		# Dumps to the file-like object sys.stdout
+		dump_output ( lambda fh: fh.write ( test_content ), sys.stdout )
+		content = capsys.readouterr().out
+
+		assert_that( content, "dump_output() to stdout succeeded" )\
+			.is_equal_to( test_content )
