@@ -1,9 +1,13 @@
 # Changelog
 
-*This file was updated on 2025-12-04. Please keep this note up to date.*
+*This file was updated on 2026-01-15. Please keep this note up to date.*
 
-# 1.1.1 (unreleased)
+# 1.1.2 (unreleased)
 * Current snapshot
+
+
+# 1.1.1
+* Package files moved to `resources/` directories.
 
 
 # 1.1.0 (2025-12-04)

@@ -1,13 +1,13 @@
 [project]
 name = "brandizpyes"
-version = "1.1.0"
+version = "1.1.1"
 description = "Brandiz Pyes - Python Utilities"
 authors = [
   { name = "Marco Brandizi" }
 ]
 license = "MIT"
 readme = "README.md"
-requires-python = "^3.14"
+requires-python = ">=3.14" # ^3.14 isn't valid in PyP
 
 [project.urls]
 Repository = "https://github.com/marco-brandizi/brandizpyes.git"
