@@ -30,15 +30,18 @@ def test_explicitly_loaded_config ( source_type: str ):
 		# to enable that.
 		#
 		logger_config ( 
-			cfg_path = os.path.dirname ( __file__ ) + "/logging-explicitly-loaded.yml",
+			cfg_path = 
+				os.path.dirname ( __file__ ) + "/resources/logging-explicitly-loaded.yml",
 			use_unsafe_loader = True 
-		) 
+		)
 
 		log = logging.getLogger ( __name__ )
 
 	elif source_type == "ENV_VAR":
 	  # Your app can set the logger config via this env var
-		os.environ [ "PYES_LOG_CONF_PATH" ] = os.path.dirname ( __file__ ) + "/logging-explicitly-loaded.yml"
+		os.environ [ "PYES_LOG_CONF_PATH" ] = \
+			os.path.dirname ( __file__ ) + "/resources/logging-explicitly-loaded.yml" 
+		
 
 		# logger_config() can be used this way too. Typically, your app will call it upon start
 		# and then its components/modules will use the standard Python logging module as usual.
@@ -111,10 +114,10 @@ def test_default_config ():
 
 def test_config_from_common_path ():
 	"""
-	Chdir to this test file dir, so that it picks up logging-test.yml
+	Chdir to the test resources dir, so that it picks up logging-test.yml
 	"""
 	
-	os.chdir ( os.path.dirname ( __file__ ) ) # myself
+	os.chdir ( os.path.dirname ( __file__ ) + "/resources" ) # myself
 
 	old_stderr = sys.stderr
 	std_err = sys.stderr = io.StringIO()

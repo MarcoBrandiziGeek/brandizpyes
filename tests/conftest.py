@@ -16,6 +16,6 @@ def pytest_configure ( config ):
 	# We can't use the usual logging-test.yml inside our own tests, since this is already used to
 	# test the brandizpyes.logging module.
 	#
-	cfg_path = os.path.dirname ( __file__ ) + "/logging-brandizpyes-test.yml"
+	cfg_path = os.path.dirname ( __file__ ) + "/resources/logging-brandizpyes-test.yml"
 	logger_config ( __name__, cfg_path )
 
