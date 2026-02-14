@@ -42,7 +42,8 @@
 			"console": "integratedTerminal",
 			"env": {
 				"PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}/tests"
-			}
+			},
+			"justMyCode": false
 		}		
 	]
 }
