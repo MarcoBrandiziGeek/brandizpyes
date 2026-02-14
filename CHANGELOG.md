@@ -1,22 +1,29 @@
 # Changelog
 
-*This file was updated on 2026-01-15. Please keep this note up to date.*
+*This file was updated on 2026-02-14. Please keep this note up to date.*
 
-# 1.1.2 (unreleased)
-* Current snapshot
+## 1.1.4 (unreleased)
+
+## 1.1.3 (2026-02-14)
+* Python version requirement downgraded to 3.13, to accomodate existing projects
+* logging utils: issue with default log file path [fixed](https://github.com/marco-brandizi/brandizpyes/issues/57c36787).
 
 
-# 1.1.1
+## 1.1.2 (2026-01-16)
+* `src/resources/` moved back to package dirs, since it's the only sane way to have them included in the distro files.
+
+
+## 1.1.1
 * Package files moved to `resources/` directories.
 
 
-# 1.1.0 (2025-12-04)
+## 1.1.0 (2025-12-04)
 * Logging via our own logging configure added to our own pytest runs
 * [ioutils](src/brandizpyes/ioutils.py) added
 * Sphinx docs removed (for the moment, we don't use it in this small project)
 
 
-# 1.0.1 (2025-11-27)
+## 1.0.1 (2025-11-27)
 * Test code improvements (refactoring, comments, assertpy )
 * Documentation improvements
 
