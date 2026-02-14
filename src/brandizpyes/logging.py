@@ -53,7 +53,7 @@ def logger_config (
 		print ( f"*** Logger config file '{cfg_path}' not found, use the OS variable PYES_LOG_CONF_PATH to point to a logging configuration.", file = stderr )
 		print ( "The logger will use a default configuration ", file = stderr )
 		cfg_path = os.path.abspath ( 
-			os.path.dirname ( __file__ ) + "/../resources/logging-default.yml"
+			os.path.dirname ( __file__ ) + "/logging-default.yml"
 		)
 
 	loader = yaml.UnsafeLoader if use_unsafe_loader else yaml.FullLoader
