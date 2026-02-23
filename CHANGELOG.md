@@ -1,8 +1,11 @@
 # Changelog
 
-*This file was updated on 2026-02-14. Please keep this note up to date.*
+*This file was updated on 2026-02-23. Please keep this note up to date.*
 
-## 1.1.4 (unreleased)
+## 1.1.5 (Unreleased)
+
+## 1.1.4 (2026-02-23)
+* Python version requirement downgraded to 3.11, to accomodate existing projects
 
 ## 1.1.3 (2026-02-14)
 * Python version requirement downgraded to 3.13, to accomodate existing projects
