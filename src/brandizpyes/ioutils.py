@@ -3,9 +3,9 @@ from typing import Callable, Optional, TextIO
 
 
 def dump_output ( 
-	writer: Callable [[TextIO], Optional[str]],
+	writer: Callable[[TextIO], Optional[str]],
 	out_path_or_io: Optional[str|TextIO] = None,
-	mode = "w",
+	mode: str = "w",
 	**open_opts
 ) -> Optional[str]:
 	"""
