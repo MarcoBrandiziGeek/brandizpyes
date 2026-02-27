@@ -55,7 +55,7 @@ jobs:
       with:
         poetry-version: "2.3.2"      
       
-    - name: Cache
+    - name: Cache for Poetry Virtualenvs
       uses: actions/cache@v4
       with:
         path: ~/.cache/pypoetry/virtualenvs
