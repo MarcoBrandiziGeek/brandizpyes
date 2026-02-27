@@ -1,14 +1,20 @@
 # Changelog
 
-*This file was updated on 2026-02-23. Please keep this note up to date.*
+*This file was updated on 2026-02-27. Please keep this note up to date.*
 
-## 1.1.5 (Unreleased)
+## 1.1.6 (Unreleased)
+
+
+## 1.1.5 (2026-02-27)
+Empty release, issued to test the CI
+
 
 ## 1.1.4 (2026-02-23)
-* Python version requirement downgraded to 3.11, to accomodate existing projects
+* Python version requirement downgraded to 3.11, to accomodate existing projects.
+
 
 ## 1.1.3 (2026-02-14)
-* Python version requirement downgraded to 3.13, to accomodate existing projects
+* Python version requirement downgraded to 3.13, to accomodate existing projects.
 * logging utils: issue with default log file path [fixed](https://github.com/marco-brandizi/brandizpyes/issues/57c36787).
 
 
