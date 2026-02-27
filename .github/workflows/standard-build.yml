@@ -61,8 +61,6 @@ jobs:
         path: ~/.cache/pypoetry/virtualenvs
         key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
 
-    # TODO: add caching as explained by them https://github.com/marketplace/actions/setup-poetry
-
     - name: Build
       env:
         GIT_USER: ${{github.actor}}
