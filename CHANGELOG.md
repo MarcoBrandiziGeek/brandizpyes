@@ -3,6 +3,7 @@
 *This file was updated on 2026-02-27. Please keep this note up to date.*
 
 ## 1.1.6 (Unreleased)
+It's identical to 1.1.5, published by mistake.
 
 
 ## 1.1.5 (2026-02-27)
