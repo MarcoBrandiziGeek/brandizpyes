@@ -32,6 +32,9 @@ on:
         required: false
         default: "false"
 
+permissions:
+  # needed to push and when the repo belongs to an organisation.
+  contents: write
     
 jobs:
   build:
