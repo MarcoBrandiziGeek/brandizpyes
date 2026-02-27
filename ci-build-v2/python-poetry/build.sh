@@ -3,7 +3,8 @@ set -e
 
 function stage_init_release_local
 {
-	is_release_mode true || return 0
+	# true not needed here, since it's done by stage_init_release()
+	is_release_mode || return 0
 	stage_init_release
 
 	printf "== DISABLING, remove when debugged\n"
