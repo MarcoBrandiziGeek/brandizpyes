@@ -10,9 +10,9 @@ readme = "README.md"
 requires-python = ">=3.11" # ^3.11 isn't valid in PyPI
 
 [project.urls]
-Repository = "https://github.com/marco-brandizi/brandizpyes.git"
-Issues = "https://github.com/marco-brandizi/brandizpyes/issues"
-Changelog = "https://github.com/marco-brandizi/brandizpyes/blob/main/CHANGELOG.md"
+Repository = "https://github.com/MarcoBrandiziGeek/brandizpyes/"
+Issues = "https://github.com/MarcoBrandiziGeek/brandizpyes/issues"
+Changelog = "https://github.com/MarcoBrandiziGeek/brandizpyes/blob/main/CHANGELOG.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"

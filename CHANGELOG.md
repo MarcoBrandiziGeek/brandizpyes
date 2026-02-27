@@ -6,7 +6,7 @@
 
 
 ## 1.1.5 (2026-02-27)
-Empty release, issued to test the CI
+* Migrated from personal GitHub repo to my own organisation, MarcoBrandiziGeek.
 
 
 ## 1.1.4 (2026-02-23)
