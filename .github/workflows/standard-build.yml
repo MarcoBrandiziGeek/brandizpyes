@@ -67,6 +67,8 @@ jobs:
         GIT_USER_EMAIL: ${{secrets.GIT_USER_EMAIL}}
         # Used during releasing
         POETRY_PYPI_TOKEN_PYPI: ${{secrets.POETRY_PYPI_TOKEN_PYPI}}
+        # Also used during releasing by the GH client, to create a new release on the repo
+        GH_TOKEN: ${{ github.token }}        
         CI_TRIGGERING_EVENT: ${{github.event_name}}
         # This is only set when using the act tool
         CI_IS_ACT_TOOL: ${{ secrets.CI_IS_ACT_TOOL }}
