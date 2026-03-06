@@ -1,6 +1,11 @@
 # Changelog
 
-*This file was updated on 2026-02-27. Please keep this note up to date.*
+*This file was updated on 2026-03-06. Please keep this note up to date.*
+
+## 1.2.0 (2026-03-06)
+* `reader_helper()` added
+* `dump_output()` checks its arguments better.
+
 
 ## 1.1.7 (2026-02-27)
 It's identical to 1.1.5, published by mistake.

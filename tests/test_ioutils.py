@@ -1,10 +1,12 @@
+from io import StringIO
 import os
+from pathlib import Path
 import sys
 import tempfile
 
 from assertpy import assert_that
 
-from brandizpyes.ioutils import dump_output
+from brandizpyes.ioutils import dump_output, reader_helper
 
 
 class TestDumpOutput:
@@ -44,3 +46,32 @@ class TestDumpOutput:
 
 		assert_that( content, "dump_output() to stdout succeeded" )\
 			.is_equal_to( test_content )
+
+
+class TestReaderHelper:
+	def test_from_string ( self ):
+		test_content = "Hello, StringIO!\n"
+		content = reader_helper ( lambda fh: fh.read (), test_content )
+		assert_that ( content, "reader_helper() from string succeeded" )\
+			.is_equal_to ( test_content )
+
+	def test_from_file ( self ):
+		test_content = "Hello, file!\n"
+		# First write it
+		input_path = Path ( os.path.join ( tempfile.gettempdir (), 'ketl.ioutils.testinput.txt' ) )
+		if input_path.exists (): input_path.unlink ()
+		with open ( input_path, 'w' ) as fh:
+			fh.write ( test_content )
+
+		# And now use it to test
+		content = reader_helper ( lambda fh: fh.read (), input_path )
+		assert_that ( content, "reader_helper() from file succeeded" )\
+			.is_equal_to ( test_content )
+	
+	def test_from_stdin ( self, capsys ):
+		test_content = "Hello, stdin!\n"
+		sys.stdin = StringIO ( test_content )
+
+		content = reader_helper ( lambda fh: fh.read () )
+		assert_that ( content, "reader_helper() from stdin succeeded" )\
+			.is_equal_to ( test_content )
