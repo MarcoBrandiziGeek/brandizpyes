@@ -2,8 +2,12 @@
 
 *This file was updated on 2026-03-06. Please keep this note up to date.*
 
+## 1.2.1 (unreleased)
+* Current dev version.
+
+
 ## 1.2.0 (2026-03-06)
-* `reader_helper()` added
+* `reader_helper()` added.
 * `dump_output()` checks its arguments better.
 
 
