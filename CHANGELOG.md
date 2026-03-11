@@ -1,9 +1,12 @@
 # Changelog
 
-*This file was updated on 2026-03-06. Please keep this note up to date.*
+*This file was updated on 2026-03-11. Please keep this note up to date.*
 
-## 1.2.1 (unreleased)
-* Current dev version.
+
+## 2.0 (unreleased)
+* Progress loggers added
+* `brandizpyes.threading` added (`ReadWriteLock`).
+* `brandizpyes.ioutils` renamed to `brandizpyes.io`.
 
 
 ## 1.2.0 (2026-03-06)
