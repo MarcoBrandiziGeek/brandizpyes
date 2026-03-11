@@ -6,7 +6,7 @@ import tempfile
 
 from assertpy import assert_that
 
-from brandizpyes.ioutils import dump_output, reader_helper
+from brandizpyes.io import dump_output, reader_helper
 
 
 class TestDumpOutput:
