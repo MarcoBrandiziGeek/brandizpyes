@@ -2,8 +2,12 @@
 
 *This file was updated on 2026-03-12. Please keep this note up to date.*
 
-## 2.0.1 (unreleased)
+## 2.1.1 (unreleased)
 * Current dev
+
+
+## 2.1.0 (2026-03-12)
+* `dump_output()` and `reader_helper()` now support iterables as output sinks and input sources, respectively.
 
 
 ## 2.0.0 (2026-03-12)
