@@ -2,7 +2,7 @@
 
 *This file was updated on 2026-03-12. Please keep this note up to date.*
 
-## 2.0.0 (unreleased)
+## 2.0.1 (unreleased)
 * Current dev
 
 
