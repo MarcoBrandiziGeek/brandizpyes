@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-set -e
+set -eE -o pipefail
+
 
 printf "== Installing ci-build scripts and then running the build\n"
 ci_build_url_base="https://raw.githubusercontent.com/Rothamsted/knetminer-common/refs/heads/ci-build-v2"
