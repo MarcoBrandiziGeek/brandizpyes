@@ -9,6 +9,11 @@ class ReadWriteLock:
 	Writers are given priority over readers, meaning that if a writer is waiting to acquire the 
 	lock, no new readers will be allowed to acquire the lock until the writer has acquired and 
 	released it.
+
+	Note: we have considered replacing it with `RWMutex` from [pygolang](https://lab.nexedi.com/kirr/pygolang),
+	however, this project we're not sure how much this project is still maintained, and when adding
+	it to our dependencies, it generates an error like "No module named 'imp'", which means it's stuck
+	on Python 3.4.
 	"""
 
 	def __init__(self):
