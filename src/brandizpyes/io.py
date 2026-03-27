@@ -81,7 +81,8 @@ def reader_helper (
 
 	We support this variety of input types to cover both production and test cases.
 
-	**WARNING**: If the reader is an async function, use :func:`async_reader_helper`, see its docstring for details.
+	**WARNING**: If the reader is an async function, use :func:`async_reader_helper`, 
+	see its docstring for details.
 	"""
 	if input_source is None:
 		return reader ( sys.stdin )
@@ -115,12 +116,17 @@ async def async_reader_helper (
 
 	TODO: do we need `async_dump_output_helper()` too? 
 	"""
-	
+
 	if input_source is None:
 		return await reader ( sys.stdin )
 	if isinstance ( input_source, str ):
 		return await reader ( StringIO ( input_source ) )
 	if isinstance ( input_source, Path ):
+		# This is where the async version is truly needed. The other cases work anyway, because either
+		# they don't need an opening/closing wrapper (Iterable), or they land here but the 'with' block 
+		# calls empty opening/closing methods (StringIO, sys.stdin). Here, the await actually awaits for 
+		# a result before ending the block, while the sync version would just return an unawaited coroutine 
+		# and close the file, with the reader failing at the first I/O.
 		with open ( input_source, mode, **open_opts ) as fh:
 			return await reader ( fh )
 	if isinstance ( input_source, Iterable ) or \
