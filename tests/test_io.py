@@ -15,7 +15,6 @@ class TestDumpOutput:
 	def test_to_file ( self ):
 		test_content = "Hello, file!\n"
 		output_path = os.path.join ( tempfile.gettempdir (), 'ketl.ioutils.testdumpout.txt' )
-
 		if os.path.exists ( output_path ): os.remove ( output_path )
 
 		# Dump to this path
@@ -66,15 +65,9 @@ class TestReaderHelper:
 		assert_that ( content, "reader_helper() from string succeeded" )\
 			.is_equal_to ( test_content )
 
-	def test_from_file ( self ):
-		test_content = "Hello, file!\n"
-		# First write it
-		input_path = Path ( os.path.join ( tempfile.gettempdir (), 'ketl.ioutils.testinput.txt' ) )
-		if input_path.exists (): input_path.unlink ()
-		with open ( input_path, 'w' ) as fh:
-			fh.write ( test_content )
+	def test_from_file ( self, sample_file: tuple[Path, str] ):
+		input_path, test_content = sample_file
 
-		# And now use it to test
 		content = reader_helper ( lambda fh: fh.read (), input_path )
 		assert_that ( content, "reader_helper() from file succeeded" )\
 			.is_equal_to ( test_content )
@@ -108,15 +101,9 @@ class TestAsyncReaderHelper:
 			.is_equal_to ( test_content )
 
 	@pytest.mark.asyncio
-	async def test_from_file ( self ):
-		test_content = "Hello, file!\n"
-		# First write it. TODO: make it a fixture
-		input_path = Path ( os.path.join ( tempfile.gettempdir (), 'ketl.ioutils.testinput.txt' ) )
-		if input_path.exists (): input_path.unlink ()
-		with open ( input_path, 'w' ) as fh:
-			fh.write ( test_content )
+	async def test_from_file ( self, sample_file: tuple[Path, str] ):
+		input_path, test_content = sample_file
 
-		# And now use it to test
 		content = await async_reader_helper ( self.async_file_read, input_path )
 		assert_that ( content, "async_reader_helper() from file succeeded" )\
 			.is_equal_to ( test_content )
@@ -139,3 +126,19 @@ class TestAsyncReaderHelper:
 		content = await async_reader_helper ( iter_reader, test_content )
 		assert_that ( content, "async_reader_helper() from iterable succeeded" )\
 			.is_equal_to ( "".join ( str(item) for item in test_content ) )
+
+@pytest.fixture ( scope = "module" )
+def sample_file () -> tuple[Path, str]:
+	"""
+	Temp file used with reader helper tests.
+
+	## Returns:
+
+	A pair of file path and the content we wrote to it.
+	"""
+
+	test_content = "Hello, file!\n"
+	path = Path ( os.path.join ( tempfile.gettempdir (), 'ketl.ioutils.testinput.txt' ) )
+	if path.exists (): path.unlink ()
+	path.write_text ( test_content )
+	return path, test_content
