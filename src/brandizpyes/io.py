@@ -1,7 +1,8 @@
+from csv import reader
 from io import StringIO
 from pathlib import Path
 import sys
-from typing import Any, Callable, Iterable, TextIO
+from typing import Any, Awaitable, Callable, Iterable, TextIO
 
 
 def dump_output ( 
@@ -79,6 +80,8 @@ def reader_helper (
 		Whatever `reader` returns, including None.
 
 	We support this variety of input types to cover both production and test cases.
+
+	**WARNING**: If the reader is an async function, use :func:`async_reader_helper`, see its docstring for details.
 	"""
 	if input_source is None:
 		return reader ( sys.stdin )
@@ -92,3 +95,36 @@ def reader_helper (
 		return reader ( input_source )
 	
 	raise ValueError ( f"reader_helper(), {type( input_source )} is invalid for input_source" )
+
+async def async_reader_helper (
+	reader: Callable[[TextIO|Iterable[Any]], Awaitable[Any|None]],
+	input_source: str|Path|TextIO|Iterable[Any]|None = None,
+	mode: str = "r", 
+	**open_opts
+) -> Any|None:
+	"""
+	Async version of :func:`brandizpyes.io.reader_helper`.
+
+	This works the same as the synch counterpart, except the reader is a coroutine and this helper
+	awaits its result before returning it.
+
+	This **must** be the version to use in an async context (ie, the reader is async), else the 
+	sync version will just return the reader as a coroutine and will quit before the reader has 
+	done anything, which later results in an error, since a file handle or alike has been closed
+	already by the helper.
+
+	TODO: do we need `async_dump_output_helper()` too? 
+	"""
+	
+	if input_source is None:
+		return await reader ( sys.stdin )
+	if isinstance ( input_source, str ):
+		return await reader ( StringIO ( input_source ) )
+	if isinstance ( input_source, Path ):
+		with open ( input_source, mode, **open_opts ) as fh:
+			return await reader ( fh )
+	if isinstance ( input_source, Iterable ) or \
+		 hasattr ( input_source, "read" ) and callable ( input_source.read ):
+		return await reader ( input_source )
+	
+	raise ValueError ( f"async_reader_helper(), {type( input_source )} is invalid for input_source" )
