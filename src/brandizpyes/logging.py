@@ -14,10 +14,11 @@ from brandizpyes.threading import ReadWriteLock, FakeReadWriteLock
 #
 
 
-def logger_config(logger_name: str = None,
-                  cfg_path: str = None,
-                  disable_existing_loggers: bool = False,
-                  use_unsafe_loader: bool = False) -> logging.Logger | None:
+def logger_config(
+	logger_name: str = None, cfg_path: str = None,
+  disable_existing_loggers: bool = False,
+  use_unsafe_loader: bool = False
+) -> logging.Logger | None:
 	"""
 	Configures the Python logging module with a YAML configuration file.
 	
