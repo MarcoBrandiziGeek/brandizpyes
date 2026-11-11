@@ -47,16 +47,6 @@ class TestDumpOutput:
 		assert_that( content, "dump_output() to stdout succeeded" )\
 			.is_equal_to( test_content )
 		
-	def test_to_iterable ( self ):
-		test_content = [ "Hello, iterable!\n", 1, 2, 3 ]
-
-		# Dumps to an iterable, in this case a list, and returns whatever the writer returns
-		iter_writer = lambda items: "".join ( str(item) for item in items )
-		content = dump_output ( iter_writer, test_content )
-
-		assert_that( content, "dump_output() to iterable succeeded" )\
-			.is_equal_to( iter_writer ( test_content ) )
-
 
 class TestReaderHelper:
 	def test_from_string ( self ):

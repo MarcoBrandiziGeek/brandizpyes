@@ -6,8 +6,8 @@ from typing import Any, Awaitable, Callable, Iterable, TextIO
 
 
 def dump_output ( 
-	writer: Callable[[TextIO|Iterable[Any]], Any|None],
-	out_sink: str|TextIO|Iterable[Any]|None = None,
+	writer: Callable[[TextIO], Any|None],
+	out_sink: str|TextIO|None = None,
 	mode: str = "w",
 	**open_opts
 ) -> str|None:
@@ -20,9 +20,8 @@ def dump_output (
 		- out_sink: If this is a string, the function will open a file against the given path and
 		will pass the corresponding file handle to the `writer` function. 
 		Else, if it's a file-like object, it will be passed as-is to the `writer` function.
-		If it's an iterable, it will also pass it as-is to the writer, but it will return whatever
-		the writer returns. If the sink is null, a :class:`StringIO` buffer will be used and its content 
-		returned as a string.
+		If it's None, a :class:`StringIO` buffer will be used and its content will be returned 
+		as a string.
 
 		- mode: The mode to open the file if `out_sink` is a string, ie, the argument is passed to :fun:`open()`.
 		
