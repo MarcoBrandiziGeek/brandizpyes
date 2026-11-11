@@ -2,8 +2,12 @@
 
 *This file was updated on 2026-11-11. Please keep this note up to date.*
 
-## 2.2.1 (Unreleased)
+## 3.0.1 (Unreleased)
+Current dev
+
+## 3.0.0
 * Current dev
+* Dependency upgrades
 
 ## Bugfixes
 * `dump_output()`: invalid parameter type removed ([details](https://github.com/MarcoBrandiziGeek/brandizpyes/commit/2bbfabfc9))
