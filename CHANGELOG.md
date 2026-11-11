@@ -1,9 +1,12 @@
 # Changelog
 
-*This file was updated on 2026-03-27. Please keep this note up to date.*
+*This file was updated on 2026-11-11. Please keep this note up to date.*
 
 ## 2.2.1 (Unreleased)
 * Current dev
+
+## Bugfixes
+* `dump_output()`: invalid parameter type removed ([details](https://github.com/MarcoBrandiziGeek/brandizpyes/commit/2bbfabfc9))
 
 
 ## 2.2.0 (2026-03-27)

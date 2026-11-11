@@ -14,6 +14,7 @@
 		// These cannot go to the .code-workspace file, since VSC doesn't accept 
 		// to resolve ${workspaceFolder} as the current root
 		{
+			// Allows for remote debugging. WARN: requires that you add debugpy as dependency
 			"name": "Python Debugger: Remote",
 			"type": "debugpy",
 			"request": "attach",
