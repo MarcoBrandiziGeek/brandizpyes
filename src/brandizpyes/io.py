@@ -1,7 +1,6 @@
-from csv import reader
+import sys
 from io import StringIO
 from pathlib import Path
-import sys
 from typing import Any, Awaitable, Callable, Iterable, TextIO
 
 

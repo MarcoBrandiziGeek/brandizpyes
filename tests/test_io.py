@@ -1,11 +1,11 @@
-from io import StringIO
 import os
-from pathlib import Path
 import sys
 import tempfile
+from io import StringIO
+from pathlib import Path
 
-from assertpy import assert_that
 import pytest
+from assertpy import assert_that
 
 from brandizpyes.io import async_reader_helper, dump_output, reader_helper
 

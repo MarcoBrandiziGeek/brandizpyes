@@ -1,4 +1,3 @@
-import io
 import logging
 import logging.config
 import os
@@ -7,7 +6,7 @@ from typing import Callable
 
 import yaml
 
-from brandizpyes.threading import ReadWriteLock, FakeReadWriteLock
+from brandizpyes.threading import FakeReadWriteLock, ReadWriteLock
 
 # TODO: support the rich library components, to get coloured output
 # see https://chatgpt.com/share/68de70b6-2904-800d-a57a-54ede673f531

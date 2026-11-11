@@ -7,7 +7,8 @@ import tempfile
 import pytest
 from assertpy import assert_that
 
-from brandizpyes.logging import PercentProgressLogger, ProgressLogger, logger_config
+from brandizpyes.logging import (PercentProgressLogger, ProgressLogger,
+                                 logger_config)
 
 
 @pytest.mark.parametrize ( "source_type", [ "PATH", "ENV_VAR" ] )
