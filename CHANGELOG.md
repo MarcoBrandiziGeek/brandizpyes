@@ -3,10 +3,10 @@
 *This file was updated on 2026-11-11. Please keep this note up to date.*
 
 ## 3.0.1 (Unreleased)
-Current dev
+* GitHub Actions upgraded
+
 
 ## 3.0.0
-* Current dev
 * Dependency upgrades
 
 ## Bugfixes
